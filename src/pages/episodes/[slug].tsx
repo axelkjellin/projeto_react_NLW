@@ -8,6 +8,7 @@ import { convertDurationToTimeString } from '../../utils/convertDurationToTimeSt
 
 import styles from './episode.module.scss';
 import Image from 'next/image';
+import { usePlayer } from '../../contexts/PlayerContext';
 
 type Episode = {
     id: string,
@@ -26,11 +27,13 @@ type EpisodeProps = {
 }
 
 export default function Episode({ episode }: EpisodeProps) {
-    const router = useRouter()
-    //aqui é caso a pagina vai ser carregada pois nao foi gerada estaticamente, seria gerado na hora
-    if (router.isFallback) {
-        return <h1>Carregando ... </h1>
-    }
+    // const router = useRouter()
+    // //aqui é caso a pagina vai ser carregada pois nao foi gerada estaticamente, seria gerado na hora
+    // if (router.isFallback) {
+    //     return <h1>Carregando ... </h1>
+    // }
+
+    const { play } = usePlayer()
 
     return (
         <div className={styles.episode} >
