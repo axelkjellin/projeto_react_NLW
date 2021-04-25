@@ -8,6 +8,7 @@ import Image from 'next/image';
 import Link from 'next/link'
 import { format, parseISO } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR'
+import Head from 'next/head';
 
 import { api } from '../services/api';
 import { convertDurationToTimeString } from '../utils/convertDurationToTimeString';
@@ -56,6 +57,9 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) { // PR
 
   return (
     <div className={styles.homePage}>
+      <Head>
+        <title>Home | Podcaster </title>
+      </Head>
       <section className={styles.latestEpisodes}>
         <h2>Ultimos Lançamentos</h2>
         <ul>
